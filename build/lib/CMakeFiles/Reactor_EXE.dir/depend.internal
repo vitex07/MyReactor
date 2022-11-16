@@ -44,7 +44,7 @@ lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o
  ../src/include/Macros.h
  ../src/include/Server.h
  ../src/include/Socket.h
- ../src/include/ThreadPool.h
+ ../src/include/ThreadPool.hpp
  ../src/include/util.h
  /home/vitex/Projects/MyReactor/src/Server.cpp
 lib/CMakeFiles/Reactor_EXE.dir/Socket.cpp.o

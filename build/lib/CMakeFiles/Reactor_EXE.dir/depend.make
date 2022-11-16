@@ -43,7 +43,7 @@ lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/include/EventLoop.h
 lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/include/Macros.h
 lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/include/Server.h
 lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/include/Socket.h
-lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/include/ThreadPool.h
+lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/include/ThreadPool.hpp
 lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/include/util.h
 lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o: ../src/Server.cpp
 

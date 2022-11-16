@@ -8,7 +8,7 @@
 #include "Connection.h"
 #include "EventLoop.h"
 #include "Socket.h"
-#include "ThreadPool.h"
+#include "ThreadPool.hpp"
 #include "util.h"
 
 Server::Server(EventLoop *loop) : main_reactor_(loop), acceptor_(nullptr), thread_pool_(nullptr) {
@@ -24,7 +24,7 @@ Server::Server(EventLoop *loop) : main_reactor_(loop), acceptor_(nullptr), threa
 
   for (int i = 0; i < size; ++i) {
     std::function<void()> sub_loop = std::bind(&EventLoop::Loop, sub_reactors_[i]);
-    thread_pool_->Add(std::move(sub_loop));
+    thread_pool_->enqueue(std::move(sub_loop));
   }
 }
 
