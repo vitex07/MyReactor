@@ -1,16 +1,18 @@
-#include "ThreadPool.hpp"
-#include <cstdio>
-#include <iostream>
+#include <log4cplus/appender.h>
+#include <log4cplus/fileappender.h>
+#include <log4cplus/logger.h>
+#include <log4cplus/consoleappender.h>
+#include <log4cplus/loggingmacros.h>
+#include <log4cplus/loglevel.h>
 #include <unistd.h>
-int add(int x,int y){
-    std::cout<<x+y<<std::endl;
-    return x+y;
-}
+using namespace log4cplus;
+using namespace log4cplus::helpers;
 
-int main(){
-    ThreadPool pool(4);
-    for (int i = 0;i<10;i++){
-        pool.enqueue(add,i,0);
-    }
-    return 0;
+int main()
+{
+    SharedAppenderPtr console_appender(new ConsoleAppender());
+    console_appender->setName("clown");
+    Logger logger = Logger::getInstance("test logger");
+    logger.addAppender(console_appender);
+    LOG4CPLUS_INFO(logger, "hello, world!");
 }
