@@ -18,13 +18,13 @@ class Server {
   ThreadPool *thread_pool_;
   std::function<void(Connection *)> on_connect_callback_;
   log4cplus::Logger logger_;
+  void DeleteConnection(Socket *sock);
+  void NewConnection(Socket *sock);
  public:
   explicit Server(EventLoop *loop);
   ~Server();
 
   DISALLOW_COPY_AND_MOVE(Server);
 
-  void NewConnection(Socket *sock);
-  void DeleteConnection(Socket *sock);
   void OnConnect(std::function<void(Connection *)> fn);
 };
