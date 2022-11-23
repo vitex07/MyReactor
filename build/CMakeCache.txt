@@ -215,6 +215,9 @@ Reactor_BINARY_DIR:STATIC=/home/vitex/Projects/MyReactor/build
 //Value Computed by CMake
 Reactor_SOURCE_DIR:STATIC=/home/vitex/Projects/MyReactor
 
+//The directory containing a CMake configuration file for log4cplus.
+log4cplus_DIR:PATH=/usr/local/lib/cmake/log4cplus
+
 
 ########################
 # INTERNAL cache entries

@@ -12,7 +12,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/vitex/Projects/MyReactor/src/EventLoop.cpp" "/home/vitex/Projects/MyReactor/build/lib/CMakeFiles/Reactor_EXE.dir/EventLoop.cpp.o"
   "/home/vitex/Projects/MyReactor/src/Server.cpp" "/home/vitex/Projects/MyReactor/build/lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o"
   "/home/vitex/Projects/MyReactor/src/Socket.cpp" "/home/vitex/Projects/MyReactor/build/lib/CMakeFiles/Reactor_EXE.dir/Socket.cpp.o"
-  "/home/vitex/Projects/MyReactor/src/ThreadPool.cpp" "/home/vitex/Projects/MyReactor/build/lib/CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.o"
   "/home/vitex/Projects/MyReactor/src/server.cpp" "/home/vitex/Projects/MyReactor/build/lib/CMakeFiles/Reactor_EXE.dir/server.cpp.o"
   "/home/vitex/Projects/MyReactor/src/util.cpp" "/home/vitex/Projects/MyReactor/build/lib/CMakeFiles/Reactor_EXE.dir/util.cpp.o"
   )
@@ -20,7 +19,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../src/include"
+  "../src/../include"
   )
 
 # Targets to which this target links.

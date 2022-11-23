@@ -1,12 +1,11 @@
 #include "Connection.h"
-
+#include <log4cplus/logger.h>
+#include <log4cplus/loggingmacros.h>
 #include <unistd.h>
-
 #include <cassert>
 #include <cstring>
 #include <iostream>
 #include <utility>
-
 #include "Buffer.h"
 #include "Channel.h"
 #include "Socket.h"
@@ -59,17 +58,18 @@ void Connection::ReadNonBlocking() {
     if (bytes_read > 0) {
       read_buffer_->Append(buf, bytes_read);
     } else if (bytes_read == -1 && errno == EINTR) {  // 程序正常中断、继续读取
-      printf("continue reading\n");
+      LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "continue reading");
+
       continue;
     } else if (bytes_read == -1 &&
                ((errno == EAGAIN) || (errno == EWOULDBLOCK))) {  // 非阻塞IO，这个条件表示数据全部读取完毕
       break;
     } else if (bytes_read == 0) {  // EOF，客户端断开连接
-      printf("read EOF, client fd %d disconnected\n", sockfd);
+      LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "read EOF, client fd " << sockfd << " disconnected");
       state_ = State::Closed;
       break;
     } else {
-      printf("Other error on client fd %d\n", sockfd);
+      LOG4CPLUS_ERROR(log4cplus::Logger::getRoot(), "Other error on client fd " << sockfd);
       state_ = State::Closed;
       break;
     }
@@ -84,14 +84,15 @@ void Connection::WriteNonBlocking() {
   while (data_left > 0) {
     ssize_t bytes_write = write(sockfd, buf + data_size - data_left, data_left);
     if (bytes_write == -1 && errno == EINTR) {
-      printf("continue writing\n");
+      LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "continue writing");
+
       continue;
     }
     if (bytes_write == -1 && errno == EAGAIN) {
       break;
     }
     if (bytes_write == -1) {
-      printf("Other error on client fd %d\n", sockfd);
+        LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "Other error on client fd " << sockfd);
       state_ = State::Closed;
       break;
     }
@@ -113,10 +114,10 @@ void Connection::ReadBlocking() {
   if (bytes_read > 0) {
     read_buffer_->Append(buf, bytes_read);
   } else if (bytes_read == 0) {
-    printf("read EOF, blocking client fd %d disconnected\n", sockfd);
+    LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "read EOF, blocking client fd " << sockfd << " disconnected");
     state_ = State::Closed;
   } else if (bytes_read == -1) {
-    printf("Other error on blocking client fd %d\n", sockfd);
+    LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "Other error on blocking client fd " << sockfd);
     state_ = State::Closed;
   }
 }
@@ -130,7 +131,8 @@ void Connection::WriteBlocking() {
   int sockfd = sock_->GetFd();
   ssize_t bytes_write = write(sockfd, send_buffer_->ToStr(), send_buffer_->Size());
   if (bytes_write == -1) {
-    printf("Other error on blocking client fd %d\n", sockfd);
+    // printf("Other error on blocking client fd %d\n", sockfd);
+    LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "Other error on blocking client fd " << sockfd);
     state_ = State::Closed;
   }
 }

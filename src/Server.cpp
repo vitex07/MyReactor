@@ -1,16 +1,18 @@
 #include "Server.h"
-
+#include <log4cplus/appender.h>
 #include <unistd.h>
-
 #include <functional>
-
 #include "Acceptor.h"
 #include "Connection.h"
 #include "EventLoop.h"
 #include "Socket.h"
 #include "ThreadPool.hpp"
 #include "util.h"
-
+#include <log4cplus/logger.h>
+#include <log4cplus/loggingmacros.h>
+#include <log4cplus/consoleappender.h>
+#include <log4cplus/fileappender.h>
+using namespace log4cplus;
 Server::Server(EventLoop *loop) : main_reactor_(loop), acceptor_(nullptr), thread_pool_(nullptr) {
   acceptor_ = new Acceptor(main_reactor_);
   std::function<void(Socket *)> cb = std::bind(&Server::NewConnection, this, std::placeholders::_1);
@@ -26,6 +28,13 @@ Server::Server(EventLoop *loop) : main_reactor_(loop), acceptor_(nullptr), threa
     std::function<void()> sub_loop = std::bind(&EventLoop::Loop, sub_reactors_[i]);
     thread_pool_->enqueue(std::move(sub_loop));
   }
+
+  //初始化logger
+  SharedAppenderPtr console_appender(new ConsoleAppender("console"));
+  SharedAppenderPtr file_appender(new FileAppender("file.log"));
+  logger_ = log4cplus::Logger::getRoot();
+  logger_.addAppender(console_appender);
+  logger_.addAppender(file_appender);
 }
 
 Server::~Server() {

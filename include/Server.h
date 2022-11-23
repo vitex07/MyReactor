@@ -1,6 +1,6 @@
 #pragma once
 #include "Macros.h"
-
+#include "log4cplus/logger.h"
 #include <functional>
 #include <map>
 #include <vector>
@@ -17,7 +17,7 @@ class Server {
   std::vector<EventLoop *> sub_reactors_;
   ThreadPool *thread_pool_;
   std::function<void(Connection *)> on_connect_callback_;
-
+  log4cplus::Logger logger_;
  public:
   explicit Server(EventLoop *loop);
   ~Server();

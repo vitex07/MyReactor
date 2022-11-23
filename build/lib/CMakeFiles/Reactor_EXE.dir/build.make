@@ -161,22 +161,9 @@ lib/CMakeFiles/Reactor_EXE.dir/Socket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Reactor_EXE.dir/Socket.cpp.s"
 	cd /home/vitex/Projects/MyReactor/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vitex/Projects/MyReactor/src/Socket.cpp -o CMakeFiles/Reactor_EXE.dir/Socket.cpp.s
 
-lib/CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.o: lib/CMakeFiles/Reactor_EXE.dir/flags.make
-lib/CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.o: ../src/ThreadPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vitex/Projects/MyReactor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lib/CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.o"
-	cd /home/vitex/Projects/MyReactor/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.o -c /home/vitex/Projects/MyReactor/src/ThreadPool.cpp
-
-lib/CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.i"
-	cd /home/vitex/Projects/MyReactor/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vitex/Projects/MyReactor/src/ThreadPool.cpp > CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.i
-
-lib/CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.s"
-	cd /home/vitex/Projects/MyReactor/build/lib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vitex/Projects/MyReactor/src/ThreadPool.cpp -o CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.s
-
 lib/CMakeFiles/Reactor_EXE.dir/server.cpp.o: lib/CMakeFiles/Reactor_EXE.dir/flags.make
 lib/CMakeFiles/Reactor_EXE.dir/server.cpp.o: ../src/server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vitex/Projects/MyReactor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object lib/CMakeFiles/Reactor_EXE.dir/server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vitex/Projects/MyReactor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lib/CMakeFiles/Reactor_EXE.dir/server.cpp.o"
 	cd /home/vitex/Projects/MyReactor/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Reactor_EXE.dir/server.cpp.o -c /home/vitex/Projects/MyReactor/src/server.cpp
 
 lib/CMakeFiles/Reactor_EXE.dir/server.cpp.i: cmake_force
@@ -189,7 +176,7 @@ lib/CMakeFiles/Reactor_EXE.dir/server.cpp.s: cmake_force
 
 lib/CMakeFiles/Reactor_EXE.dir/util.cpp.o: lib/CMakeFiles/Reactor_EXE.dir/flags.make
 lib/CMakeFiles/Reactor_EXE.dir/util.cpp.o: ../src/util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vitex/Projects/MyReactor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object lib/CMakeFiles/Reactor_EXE.dir/util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vitex/Projects/MyReactor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object lib/CMakeFiles/Reactor_EXE.dir/util.cpp.o"
 	cd /home/vitex/Projects/MyReactor/build/lib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Reactor_EXE.dir/util.cpp.o -c /home/vitex/Projects/MyReactor/src/util.cpp
 
 lib/CMakeFiles/Reactor_EXE.dir/util.cpp.i: cmake_force
@@ -210,7 +197,6 @@ Reactor_EXE_OBJECTS = \
 "CMakeFiles/Reactor_EXE.dir/EventLoop.cpp.o" \
 "CMakeFiles/Reactor_EXE.dir/Server.cpp.o" \
 "CMakeFiles/Reactor_EXE.dir/Socket.cpp.o" \
-"CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.o" \
 "CMakeFiles/Reactor_EXE.dir/server.cpp.o" \
 "CMakeFiles/Reactor_EXE.dir/util.cpp.o"
 
@@ -225,12 +211,14 @@ lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/Epoll.cpp.o
 lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/EventLoop.cpp.o
 lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/Server.cpp.o
 lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/Socket.cpp.o
-lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/ThreadPool.cpp.o
 lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/server.cpp.o
 lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/util.cpp.o
 lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/build.make
+lib/Reactor_EXE: /usr/local/lib/liblog4cplus.so.0
+lib/Reactor_EXE: /usr/lib/x86_64-linux-gnu/librt.so
+lib/Reactor_EXE: /usr/lib/x86_64-linux-gnu/libnsl.so
 lib/Reactor_EXE: lib/CMakeFiles/Reactor_EXE.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vitex/Projects/MyReactor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable Reactor_EXE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vitex/Projects/MyReactor/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Reactor_EXE"
 	cd /home/vitex/Projects/MyReactor/build/lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Reactor_EXE.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,7 +1,5 @@
 #include "Server.h"
 #include <iostream>
-#include <log4cplus/logger.h>
-#include <log4cplus/loggingmacros.h>
 #include "Buffer.h"
 #include "Connection.h"
 #include "EventLoop.h"
@@ -16,7 +14,7 @@ int main() {
       conn->Close();
       return;
     }
-    LOG4CPLUS_INFO(log4cplus::Logger::getRoot(), "Message from client " << conn->GetSocket()->GetFd() << ": " << conn->ReadBuffer());
+    std::cout << "Message from client " << conn->GetSocket()->GetFd() << ": " << conn->ReadBuffer() << std::endl;
     conn->SetSendBuffer(conn->ReadBuffer());
     conn->Write();
   });
